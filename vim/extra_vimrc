@@ -14,6 +14,7 @@ map <c-t> :ter<cr>
 
 set laststatus=2
 set t_Co=256
+syntax on
 
 set noshowmode
 
