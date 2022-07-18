@@ -1,0 +1,37 @@
+set nu
+set hls
+set cindent
+set cursorline
+
+set mouse=a
+set tabstop=4
+set shiftwidth=4
+
+set undofile
+set undodir=~/.vimun
+
+map <c-t> :ter<cr>
+
+set laststatus=2
+set t_Co=256
+
+set noshowmode
+
+colorscheme onehalfdark
+
+let g:lightline = {
+	\'colorscheme': 'onehalfdark',
+	\'active' : {
+	\	'left' : [ ['mode', 'paste'],
+	\              ['readonly', 'gitbranch', 'CurDir', 'filename', 'modified'] ],
+	\	'right': [ ['lineinfo'], ['percent'], ['filetype', 'fileformat', 'fileencoding'] ]
+	\ },
+	\ 'component_function': {
+	\   'CurDir': 'CurDir',
+	\ },
+	\ }
+
+function! CurDir()
+	let curdir = substitute(getcwd(), $HOME, "~", "g")
+	return curdir
+endfunction
